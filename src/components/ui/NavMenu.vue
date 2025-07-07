@@ -41,10 +41,12 @@ export default {
         // Sử dụng Web Audio API để preload và phát âm thanh cực nhanh
         let audioBuffer = null;
         let audioContext = null;
+        // Đường dẫn đúng với base
+        const soundUrl = import.meta.env.VITE_BASE_URL + 'navmenu.mp3';
         // Tải file mp3 và decode buffer khi component mounted
         if (typeof window !== 'undefined') {
             audioContext = new (window.AudioContext || window.webkitAudioContext)();
-            fetch('/navmenu.mp3')
+            fetch(soundUrl)
                 .then(res => res.arrayBuffer())
                 .then(arrayBuffer => audioContext.decodeAudioData(arrayBuffer))
                 .then(buffer => { audioBuffer = buffer; });
