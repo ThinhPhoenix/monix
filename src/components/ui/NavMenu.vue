@@ -73,11 +73,15 @@ export default {
     height: 5px;
     width: 33.3333%;
     background: linear-gradient(90deg, #B1AB86 0%, #0A400C 50%, #B1AB86 100%);
-    border-radius: 0 0 8px 8px;
+    border-radius: 0 0 18px 18px;
     transition: left 0.35s cubic-bezier(.4, 1.6, .6, 1), box-shadow 0.35s cubic-bezier(.4, 1.6, .6, 1);
     pointer-events: none;
     z-index: 2;
     box-shadow: 0 0 16px 4px rgba(10, 64, 12, 0.18), 0 0 32px 8px rgba(10, 64, 12, 0.10);
+    backdrop-filter: blur(12px) saturate(160%);
+    -webkit-backdrop-filter: blur(12px) saturate(160%);
+    border: 1.5px solid rgba(255,255,255,0.25);
+    opacity: 0.85;
 }
 
 .bottom-nav ul {
