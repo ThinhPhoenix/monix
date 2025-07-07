@@ -20,6 +20,16 @@ const routes = [
         name: "ExpenseManagement",
         component: () => import("../pages/ExpenseManagementPage.vue"),
       },
+      {
+        path: "analysis",
+        name: "Analysis",
+        component: () => import("../pages/AnalysisPage.vue"),
+      },
+      {
+        path: "profile",
+        name: "Profile",
+        component: () => import("../pages/ProfilePage.vue"),
+      },
     ],
   },
 ];

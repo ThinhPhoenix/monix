@@ -2,49 +2,81 @@
     <nav class="bottom-nav">
         <div class="nav-bar-indicator" :style="indicatorStyle"></div>
         <ul>
-            <li :class="{ active: activeIndex === 0 }" @click="setActive(0)">
-                <span class="icon">
-                    <PiggyBank :size="25" :color="activeIndex === 0 ? '#0A400C' : '#819067'" :stroke-width="1.8" />
-                </span>
-                <span class="label">{{ $t('home') }}</span>
-            </li>
-            <li :class="{ active: activeIndex === 1 }" @click="setActive(1)">
-                <span class="icon">
-                    <ChartSpline :size="25" :color="activeIndex === 1 ? '#0A400C' : '#819067'" :stroke-width="1.8" />
-                </span>
-                <span class="label">{{ $t('analysis') }}</span>
-            </li>
-            <li :class="{ active: activeIndex === 2 }" @click="setActive(2)">
-                <span class="icon">
-                    <User :size="25" :color="activeIndex === 2 ? '#0A400C' : '#819067'" :stroke-width="1.8" />
-                </span>
-                <span class="label">{{ $t('profile') }}</span>
-            </li>
+            <router-link to="/expense-management" custom v-slot="{ navigate, isActive }">
+                <li :class="{ active: isActive }" @click="onTabClick(navigate)">
+                    <span class="icon">
+                        <PiggyBank :size="25" :color="isActive ? '#0A400C' : '#819067'" :stroke-width="1.8" />
+                    </span>
+                    <span class="label">{{ $t('home') }}</span>
+                </li>
+            </router-link>
+            <router-link to="/analysis" custom v-slot="{ navigate, isActive }">
+                <li :class="{ active: isActive }" @click="onTabClick(navigate)">
+                    <span class="icon">
+                        <ChartSpline :size="25" :color="isActive ? '#0A400C' : '#819067'" :stroke-width="1.8" />
+                    </span>
+                    <span class="label">{{ $t('analysis') }}</span>
+                </li>
+            </router-link>
+            <router-link to="/profile" custom v-slot="{ navigate, isActive }">
+                <li :class="{ active: isActive }" @click="onTabClick(navigate)">
+                    <span class="icon">
+                        <User :size="25" :color="isActive ? '#0A400C' : '#819067'" :stroke-width="1.8" />
+                    </span>
+                    <span class="label">{{ $t('profile') }}</span>
+                </li>
+            </router-link>
         </ul>
     </nav>
 </template>
 
 <script>
 import { PiggyBank, User, ChartSpline } from 'lucide-vue-next';
+import { useRoute } from 'vue-router';
 export default {
     components: { PiggyBank, User, ChartSpline },
-    data() {
-        return {
-            activeIndex: 0
+    setup() {
+        const route = useRoute();
+        const tabRoutes = ['/', '/analysis', '/profile'];
+        // Sử dụng Web Audio API để preload và phát âm thanh cực nhanh
+        let audioBuffer = null;
+        let audioContext = null;
+        // Tải file mp3 và decode buffer khi component mounted
+        if (typeof window !== 'undefined') {
+            audioContext = new (window.AudioContext || window.webkitAudioContext)();
+            fetch('/navmenu.mp3')
+                .then(res => res.arrayBuffer())
+                .then(arrayBuffer => audioContext.decodeAudioData(arrayBuffer))
+                .then(buffer => { audioBuffer = buffer; });
         }
+        const playClickSound = () => {
+            if (audioBuffer && audioContext) {
+                const source = audioContext.createBufferSource();
+                source.buffer = audioBuffer;
+                source.connect(audioContext.destination);
+                source.start(0);
+            }
+        };
+        const onTabClick = (navigate) => {
+            playClickSound();
+            navigate();
+        };
+        const getActiveIndex = () => tabRoutes.findIndex(r => route.path === r || route.path.startsWith(r + '/'));
+        return {
+            getActiveIndex,
+            route,
+            tabRoutes,
+            playClickSound,
+            onTabClick
+        };
     },
     computed: {
         indicatorStyle() {
-            // 3 tabs, each 33.3333% width
+            const idx = this.getActiveIndex();
             return {
-                left: `calc(${this.activeIndex * 33.3333}% )`,
+                left: `calc(${(idx < 0 ? 0 : idx) * 33.3333}% )`,
                 boxShadow: '0 0 16px 4px rgba(10,64,12,0.18), 0 0 32px 8px rgba(10,64,12,0.10)'
             }
-        }
-    },
-    methods: {
-        setActive(index) {
-            this.activeIndex = index;
         }
     }
 }
@@ -80,7 +112,7 @@ export default {
     box-shadow: 0 0 16px 4px rgba(10, 64, 12, 0.18), 0 0 32px 8px rgba(10, 64, 12, 0.10);
     backdrop-filter: blur(12px) saturate(160%);
     -webkit-backdrop-filter: blur(12px) saturate(160%);
-    border: 1.5px solid rgba(255,255,255,0.25);
+    border: 1.5px solid rgba(255, 255, 255, 0.25);
     opacity: 0.85;
 }
 
