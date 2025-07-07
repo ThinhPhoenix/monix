@@ -101,7 +101,7 @@ export default {
     background: rgba(254, 250, 224, 0.7);
     box-shadow: 0 -2px 16px 0 rgba(177, 171, 134, 0.10);
     z-index: 100;
-    padding-bottom: env(safe-area-inset-bottom, 0);
+    padding-bottom: calc(env(safe-area-inset-bottom, 0) + 12px);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
     border-top: 1.5px solid #B1AB86;
@@ -134,8 +134,9 @@ export default {
     justify-content: space-around;
     align-items: center;
     position: relative;
-    height: 56px;
+    height: 68px;
     margin-top: 5px;
+    margin-bottom: 8px;
 }
 
 .bottom-nav li {

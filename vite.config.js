@@ -1,7 +1,7 @@
-import { defineConfig } from 'vite'
-import vue from '@vitejs/plugin-vue'
-import tailwindcss from '@tailwindcss/vite'
-import { VitePWA } from 'vite-plugin-pwa';
+import { defineConfig } from "vite";
+import vue from "@vitejs/plugin-vue";
+import tailwindcss from "@tailwindcss/vite";
+import { VitePWA } from "vite-plugin-pwa";
 
 // https://vite.dev/config/
 export default defineConfig({
@@ -19,6 +19,7 @@ export default defineConfig({
         short_name: "Monix",
         description: "A simple and efficient personal expense management app",
         theme_color: "#ffffff",
+        start_url: "/monix/expense-management",
         icons: [
           {
             src: "pwa-192x192.png",
