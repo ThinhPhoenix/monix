@@ -6,4 +6,5 @@ export default {
   download: "Download",
   search_expense: "Search expense...",
   no_expense: "No expenses found.",
+  ai_chat: "AI Chat",
 };

@@ -18,6 +18,14 @@
                     <span class="label">{{ $t('analysis') }}</span>
                 </li>
             </router-link>
+            <router-link to="/ai-chat" custom v-slot="{ navigate, isActive }">
+                <li :class="{ active: isActive }" @click="onTabClick(navigate)">
+                    <span class="icon">
+                        <Sparkles :size="25" :stroke-width="1.8" :color="isActive ? '#0A400C' : '#819067'" />
+                    </span>
+                    <span class="label">{{ $t('ai_chat') }}</span>
+                </li>
+            </router-link>
             <router-link to="/profile" custom v-slot="{ navigate, isActive }">
                 <li :class="{ active: isActive }" @click="onTabClick(navigate)">
                     <span class="icon">
@@ -31,13 +39,13 @@
 </template>
 
 <script>
-import { PiggyBank, User, ChartSpline } from 'lucide-vue-next';
+import { PiggyBank, User, ChartSpline, Sparkles } from 'lucide-vue-next';
 import { useRoute } from 'vue-router';
 export default {
-    components: { PiggyBank, User, ChartSpline },
+    components: { PiggyBank, User, ChartSpline, Sparkles },
     setup() {
         const route = useRoute();
-        const tabRoutes = ['/', '/analysis', '/profile'];
+        const tabRoutes = ['/expense-management', '/analysis', '/ai-chat', '/profile'];
         // Sử dụng Web Audio API để preload và phát âm thanh cực nhanh
         let audioBuffer = null;
         let audioContext = null;
@@ -76,7 +84,7 @@ export default {
         indicatorStyle() {
             const idx = this.getActiveIndex();
             return {
-                left: `calc(${(idx < 0 ? 0 : idx) * 33.3333}% )`,
+                left: `calc(${(idx < 0 ? 0 : idx) * 25}% )`,
                 boxShadow: '0 0 16px 4px rgba(10,64,12,0.18), 0 0 32px 8px rgba(10,64,12,0.10)'
             }
         }
@@ -105,7 +113,7 @@ export default {
     top: 0;
     left: 0;
     height: 5px;
-    width: 33.3333%;
+    width: 25%;
     background: linear-gradient(90deg, #B1AB86 0%, #0A400C 50%, #B1AB86 100%);
     border-radius: 0 0 18px 18px;
     transition: left 0.35s cubic-bezier(.4, 1.6, .6, 1), box-shadow 0.35s cubic-bezier(.4, 1.6, .6, 1);
