@@ -54,7 +54,7 @@ function sendMessage() {
     z-index: 30;
     backdrop-filter: blur(10px);
     padding: 0 24px 0 24px;
-    border-radius: 0 0 18px 18px;
+    border-radius: 18px 18px 0px 0px;
     box-shadow: 0 4px 24px 0 rgba(177, 171, 134, 0.10);
     border: 1.5px solid #f3f3e7;
     height: 175px;
