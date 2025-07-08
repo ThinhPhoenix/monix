@@ -6,7 +6,7 @@
   src: url("/fonts/Bricolage_Grotesque/static/BricolageGrotesque-Regular.ttf") format("truetype");
   font-weight: 400;
   font-style: normal;
-  font-display: swap;
+  font-display: block;
 }
 
 @font-face {
@@ -14,7 +14,7 @@
   src: url("/fonts/Bricolage_Grotesque/static/BricolageGrotesque-Bold.ttf") format("truetype");
   font-weight: 700;
   font-style: normal;
-  font-display: swap;
+  font-display: block;
 }
 
 /* Fraunces */
@@ -23,7 +23,7 @@
   src: url("/fonts/Fraunces/static/Fraunces_72pt_SuperSoft-Regular.ttf") format("truetype");
   font-weight: 400;
   font-style: normal;
-  font-display: swap;
+  font-display: block;
 }
 
 @font-face {
@@ -31,7 +31,7 @@
   src: url("/fonts/Fraunces/static/Fraunces_72pt_SuperSoft-Bold.ttf") format("truetype");
   font-weight: 700;
   font-style: normal;
-  font-display: swap;
+  font-display: block;
 }
 
 body {
