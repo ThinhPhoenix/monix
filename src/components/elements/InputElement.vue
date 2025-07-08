@@ -79,7 +79,7 @@ const emit = defineEmits(['update:modelValue']);
 
 /* Nếu có icon phải */
 .input-wrapper:has(.input-icon-right:not(:empty)) .input-element {
-    padding-right: 2.2em;
+    padding-right: 3em;
 }
 
 .input-element:focus {

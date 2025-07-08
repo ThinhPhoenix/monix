@@ -3,7 +3,7 @@ import { createRouter, createWebHistory } from "vue-router";
 const routes = [
   {
     path: "/",
-    component: () => import("../layouts/AppLayout.vue"),
+    component: () => import("../layouts/DefaultLayout.vue"),
     children: [
       {
         path: "",
@@ -15,6 +15,12 @@ const routes = [
         name: "Download",
         component: () => import("../pages/DownloadPage.vue"),
       },
+    ],
+  },
+  {
+    path: "/",
+    component: () => import("../layouts/AppLayout.vue"),
+    children: [
       {
         path: "expense-management",
         name: "ExpenseManagement",

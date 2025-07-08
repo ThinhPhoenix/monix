@@ -1,5 +1,5 @@
 <template>
-    <nav class="bottom-nav">
+    <nav class="bottom-nav" :class="{ 'nav-hidden': isHidden }">
         <div class="nav-bar-indicator" :style="indicatorStyle"></div>
         <ul>
             <router-link to="/expense-management" custom v-slot="{ navigate, isActive }">
@@ -39,7 +39,7 @@
 </template>
 
 <script setup>
-import { computed } from 'vue';
+import { computed, ref, onMounted, onUnmounted } from 'vue';
 import { PiggyBank, User, ChartSpline, Sparkles } from 'lucide-vue-next';
 import { useRoute } from 'vue-router';
 import Assets from '@/assets';
@@ -78,6 +78,24 @@ const indicatorStyle = computed(() => {
         boxShadow: '0 0 16px 4px rgba(10,64,12,0.18), 0 0 32px 8px rgba(10,64,12,0.10)'
     };
 });
+
+const isHidden = ref(false);
+let lastScrollY = window.scrollY;
+function handleScroll() {
+    const currentY = window.scrollY;
+    if (currentY > lastScrollY && currentY > 40) {
+        isHidden.value = true;
+    } else {
+        isHidden.value = false;
+    }
+    lastScrollY = currentY;
+}
+onMounted(() => {
+    window.addEventListener('scroll', handleScroll);
+});
+onUnmounted(() => {
+    window.removeEventListener('scroll', handleScroll);
+});
 </script>
 
 <style scoped>
@@ -94,6 +112,15 @@ const indicatorStyle = computed(() => {
     -webkit-backdrop-filter: blur(16px);
     border-top: 1.5px solid #B1AB86;
     overflow: hidden;
+    transition: transform 0.35s ease;
+    will-change: transform;
+    opacity: 1;
+}
+
+.bottom-nav.nav-hidden {
+    transform: translateY(100%);
+    opacity: 1;
+    pointer-events: none;
 }
 
 .nav-bar-indicator {
