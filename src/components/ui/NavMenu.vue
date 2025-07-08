@@ -172,4 +172,14 @@ const indicatorStyle = computed(() => {
 .bottom-nav li:focus .icon {
     color: #B1AB86;
 }
+
+.above-nav {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 68px;
+    /* đúng bằng hoặc cao hơn chiều cao NavMenu */
+    z-index: 1200;
+    /* cao hơn .bottom-nav */
+}
 </style>

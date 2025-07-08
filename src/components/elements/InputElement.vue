@@ -67,7 +67,18 @@ const emit = defineEmits(['update:modelValue']);
     font-size: 1rem;
     width: 100%;
     box-shadow: 0 1px 4px 0 rgba(177, 171, 134, 0.07);
+    /* Mặc định không padding icon */
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+/* Nếu có icon trái */
+.input-wrapper:has(.input-icon-left:not(:empty)) .input-element {
     padding-left: 2.2em;
+}
+
+/* Nếu có icon phải */
+.input-wrapper:has(.input-icon-right:not(:empty)) .input-element {
     padding-right: 2.2em;
 }
 
