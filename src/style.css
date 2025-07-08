@@ -3,16 +3,15 @@
 /* Bricolage Grotesque */
 @font-face {
   font-family: "Bricolage Grotesque";
-  src: url("/fonts/Bricolage_Grotesque/static/BricolageGrotesque-Regular.ttf")
-      format("truetype");
+  src: url("/fonts/Bricolage_Grotesque/static/BricolageGrotesque-Regular.ttf") format("truetype");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
+
 @font-face {
   font-family: "Bricolage Grotesque";
-  src: url("/fonts/Bricolage_Grotesque/static/BricolageGrotesque-Bold.ttf")
-      format("truetype");
+  src: url("/fonts/Bricolage_Grotesque/static/BricolageGrotesque-Bold.ttf") format("truetype");
   font-weight: 700;
   font-style: normal;
   font-display: swap;
@@ -26,6 +25,7 @@
   font-style: normal;
   font-display: swap;
 }
+
 @font-face {
   font-family: "Fraunces";
   src: url("/fonts/Fraunces/static/Fraunces_72pt_SuperSoft-Bold.ttf") format("truetype");
@@ -51,6 +51,11 @@ h6 {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   --font-bricolage-grotesque: "Bricolage Grotesque", sans-serif;
   --font-fraunces: "Fraunces", serif;
+  --raisin-black: #1e1e24ff;
+  --penn-red: #92140cff;
+  --floral-white: #fff8f0ff;
+  --sunset: #ffcf99ff;
+  --space-cadet: #111d4aff;
 }
 
 .bg-grid {
@@ -58,8 +63,7 @@ h6 {
   height: 100%;
   --color: #d6d2b8;
   background-color: #f6f5f0;
-  background-image: linear-gradient(
-      0deg,
+  background-image: linear-gradient(0deg,
       transparent 24%,
       var(--color) 25%,
       var(--color) 26%,
@@ -68,10 +72,8 @@ h6 {
       var(--color) 75%,
       var(--color) 76%,
       transparent 77%,
-      transparent
-    ),
-    linear-gradient(
-      90deg,
+      transparent),
+    linear-gradient(90deg,
       transparent 24%,
       var(--color) 25%,
       var(--color) 26%,
@@ -80,7 +82,6 @@ h6 {
       var(--color) 75%,
       var(--color) 76%,
       transparent 77%,
-      transparent
-    );
+      transparent);
   background-size: 55px 55px;
 }
