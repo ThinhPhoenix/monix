@@ -1,4 +1,4 @@
-import{m as a}from"./index-VQyozqeO.js";/**
+import{s as a}from"./index-B3mBKG8u.js";/**
  * @license lucide-vue-next v0.525.0 - ISC
  *
  * This source code is licensed under the ISC license.
@@ -13,9 +13,9 @@ import{m as a}from"./index-VQyozqeO.js";/**
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
- */const m=({size:e,strokeWidth:t=2,absoluteStrokeWidth:r,color:o,iconNode:l,name:c,class:p,...u},{slots:i})=>a("svg",{...s,width:e||s.width,height:e||s.height,stroke:o||s.stroke,"stroke-width":r?Number(t)*24/Number(e):t,class:C("lucide",...c?[`lucide-${n(w(c))}-icon`,`lucide-${n(c)}`]:["lucide-icon"]),...u},[...l.map(d=>a(...d)),...i.default?[i.default()]:[]]);/**
+ */const p=({size:e,strokeWidth:t=2,absoluteStrokeWidth:r,color:o,iconNode:l,name:c,class:g,...u},{slots:i})=>a("svg",{...s,width:e||s.width,height:e||s.height,stroke:o||s.stroke,"stroke-width":r?Number(t)*24/Number(e):t,class:C("lucide",...c?[`lucide-${n(w(c))}-icon`,`lucide-${n(c)}`]:["lucide-icon"]),...u},[...l.map(d=>a(...d)),...i.default?[i.default()]:[]]);/**
  * @license lucide-vue-next v0.525.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
- */const f=(e,t)=>(r,{slots:o})=>a(m,{...r,iconNode:t,name:e},o);export{f as c};
+ */const f=(e,t)=>(r,{slots:o})=>a(p,{...r,iconNode:t,name:e},o);export{f as c};
