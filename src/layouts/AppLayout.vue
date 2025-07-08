@@ -14,11 +14,8 @@
     </div>
 </template>
 
-<script>
+<script setup>
 import NavMenu from '../components/ui/NavMenu.vue';
-export default {
-    components: { NavMenu }
-}
 </script>
 
 <style scoped>

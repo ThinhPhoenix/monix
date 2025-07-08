@@ -15,24 +15,22 @@
     </div>
 </template>
 
-<script>
-export default {
-    name: 'InputElement',
-    props: {
-        modelValue: String,
-        label: String,
-        placeholder: String,
-        type: {
-            type: String,
-            default: 'text'
-        },
-        disabled: Boolean,
-        autocomplete: {
-            type: String,
-            default: 'off'
-        }
+<script setup>
+const props = defineProps({
+    modelValue: String,
+    label: String,
+    placeholder: String,
+    type: {
+        type: String,
+        default: 'text'
+    },
+    disabled: Boolean,
+    autocomplete: {
+        type: String,
+        default: 'off'
     }
-}
+});
+const emit = defineEmits(['update:modelValue']);
 </script>
 
 <style scoped>
@@ -61,7 +59,6 @@ export default {
     border-radius: 10px;
     outline: 2px solid #B1AB86;
     border: 0;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     background-color: rgba(254, 250, 224, 0.7);
     outline-offset: 3px;
     padding: 10px 1rem;
@@ -99,7 +96,7 @@ export default {
 }
 
 .input-icon-left {
-    left: 12px;
+    left: 8px;
 }
 
 .input-icon-right {
