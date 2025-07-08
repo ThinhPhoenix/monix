@@ -6,5 +6,5 @@ export default {
   download: "Tải về",
   search_expense: "Tìm kiếm chi tiêu...",
   no_expense: "Không có khoản chi tiêu nào.",
-  ai_chat: "Bánh Xếp",
+  ai_chat: "Bánh xếp",
 };

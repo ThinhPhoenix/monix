@@ -38,58 +38,46 @@
     </nav>
 </template>
 
-<script>
+<script setup>
+import { computed } from 'vue';
 import { PiggyBank, User, ChartSpline, Sparkles } from 'lucide-vue-next';
 import { useRoute } from 'vue-router';
-export default {
-    components: { PiggyBank, User, ChartSpline, Sparkles },
-    setup() {
-        const route = useRoute();
-        const tabRoutes = ['/expense-management', '/analysis', '/ai-chat', '/profile'];
-        // Sử dụng Web Audio API để preload và phát âm thanh cực nhanh
-        let audioBuffer = null;
-        let audioContext = null;
-        // Đường dẫn đúng với base
-        const soundUrl = import.meta.env.VITE_BASE_URL + 'navmenu.mp3';
-        // Tải file mp3 và decode buffer khi component mounted
-        if (typeof window !== 'undefined') {
-            audioContext = new (window.AudioContext || window.webkitAudioContext)();
-            fetch(soundUrl)
-                .then(res => res.arrayBuffer())
-                .then(arrayBuffer => audioContext.decodeAudioData(arrayBuffer))
-                .then(buffer => { audioBuffer = buffer; });
-        }
-        const playClickSound = () => {
-            if (audioBuffer && audioContext) {
-                const source = audioContext.createBufferSource();
-                source.buffer = audioBuffer;
-                source.connect(audioContext.destination);
-                source.start(0);
-            }
-        };
-        const onTabClick = (navigate) => {
-            playClickSound();
-            navigate();
-        };
-        const getActiveIndex = () => tabRoutes.findIndex(r => route.path === r || route.path.startsWith(r + '/'));
-        return {
-            getActiveIndex,
-            route,
-            tabRoutes,
-            playClickSound,
-            onTabClick
-        };
-    },
-    computed: {
-        indicatorStyle() {
-            const idx = this.getActiveIndex();
-            return {
-                left: `calc(${(idx < 0 ? 0 : idx) * 25}% )`,
-                boxShadow: '0 0 16px 4px rgba(10,64,12,0.18), 0 0 32px 8px rgba(10,64,12,0.10)'
-            }
-        }
-    }
+import Assets from '@/assets';
+
+const route = useRoute();
+const tabRoutes = ['/expense-management', '/analysis', '/ai-chat', '/profile'];
+
+// Sử dụng Web Audio API để preload và phát âm thanh cực nhanh
+let audioBuffer = null;
+let audioContext = null;
+const soundUrl = Assets.SoundsNavMenuClick;
+if (typeof window !== 'undefined') {
+    audioContext = new (window.AudioContext || window.webkitAudioContext)();
+    fetch(soundUrl)
+        .then(res => res.arrayBuffer())
+        .then(arrayBuffer => audioContext.decodeAudioData(arrayBuffer))
+        .then(buffer => { audioBuffer = buffer; });
 }
+const playClickSound = () => {
+    if (audioBuffer && audioContext) {
+        const source = audioContext.createBufferSource();
+        source.buffer = audioBuffer;
+        source.connect(audioContext.destination);
+        source.start(0);
+    }
+};
+const onTabClick = (navigate) => {
+    playClickSound();
+    navigate();
+};
+const getActiveIndex = () => tabRoutes.findIndex(r => route.path === r || route.path.startsWith(r + '/'));
+const indicatorStyle = computed(() => {
+    const idx = getActiveIndex();
+    return {
+        left: `calc(${(idx < 0 ? 0 : idx) * 25}% )`,
+        boxShadow: '0 0 16px 4px rgba(10,64,12,0.18), 0 0 32px 8px rgba(10,64,12,0.10)'
+    };
+});
 </script>
 
 <style scoped>

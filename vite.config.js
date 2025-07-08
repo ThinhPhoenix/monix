@@ -38,5 +38,10 @@ export default defineConfig({
   server: {
     allowedHosts: ["xiaoxin.tail45c10e.ts.net"],
   },
+  resolve: {
+    alias: {
+      "@": "/src",
+    },
+  },
   base: "/monix/",
 });
