@@ -1,1 +1,0 @@
-import{_ as o,c as t,a,b as s,r as c,o as n}from"./index-CerHYTh5.js";const r={},_={class:"app-layout"},i={class:"main-content bg-grid"};function d(l,m){const e=c("router-view");return n(),t("div",_,[a("main",i,[s(e)])])}const u=o(r,[["render",d]]);export{u as default};
