@@ -57,7 +57,6 @@ function sendMessage() {
     border-radius: 0 0 18px 18px;
     box-shadow: 0 4px 24px 0 rgba(177, 171, 134, 0.10);
     border: 1.5px solid #f3f3e7;
-    background: rgba(254, 250, 224, 0.92);
     height: 175px;
     display: flex;
     flex-direction: column;
