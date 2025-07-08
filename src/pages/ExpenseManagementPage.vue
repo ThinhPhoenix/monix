@@ -99,7 +99,6 @@ function handleSave(formData) {
     position: sticky;
     top: 0px;
     z-index: 30;
-    /* background: rgba(254, 250, 224, 0.92); */
     backdrop-filter: blur(10px);
     padding: 24px 24px 0px 24px;
     margin-bottom: 16px;

@@ -282,7 +282,7 @@ function handleSave(formData) {
     display: flex;
     flex-direction: column;
     align-items: stretch;
-    margin-top: 8px;
+
     /* thêm margin trên */
     margin-bottom: 24px;
     /* giữ margin dưới */
