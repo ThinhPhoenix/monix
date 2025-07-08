@@ -1,0 +1,22 @@
+import{_ as m,c as $,a as f,b as e,n as A,d as o,w as r,e as d,u,t as p,r as y,f as z,o as C}from"./index-CyEQfGZv.js";import{c as h}from"./createLucideIcon-CmzRKj-k.js";/**
+ * @license lucide-vue-next v0.525.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */const S=h("chart-spline",[["path",{d:"M3 3v16a2 2 0 0 0 2 2h16",key:"c24i48"}],["path",{d:"M7 16c.5-2 1.5-7 4-7 2 0 2 3 4 3 2.5 0 4.5-5 5-7",key:"lw07rv"}]]);/**
+ * @license lucide-vue-next v0.525.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */const B=h("piggy-bank",[["path",{d:"M11 17h3v2a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1v-3a3.16 3.16 0 0 0 2-2h1a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1h-1a5 5 0 0 0-2-4V3a4 4 0 0 0-3.2 1.6l-.3.4H11a6 6 0 0 0-6 6v1a5 5 0 0 0 2 4v3a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1z",key:"1piglc"}],["path",{d:"M16 10h.01",key:"1m94wz"}],["path",{d:"M2 8v1a2 2 0 0 0 2 2h1",key:"1env43"}]]);/**
+ * @license lucide-vue-next v0.525.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */const I=h("sparkles",[["path",{d:"M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z",key:"4pj2yx"}],["path",{d:"M20 3v4",key:"1olli1"}],["path",{d:"M22 5h-4",key:"1gvqau"}],["path",{d:"M4 17v2",key:"vumght"}],["path",{d:"M5 18H3",key:"zchphs"}]]);/**
+ * @license lucide-vue-next v0.525.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */const L=h("user",[["path",{d:"M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2",key:"975kel"}],["circle",{cx:"12",cy:"7",r:"4",key:"17ys0d"}]]),N="/monix/assets/nav-menu-click-DhCIjulA.mp3";//! ⚠️ THIS FILE IS AUTO-GENERATED. DO NOT EDIT DIRECTLY. RUN generate_index.js TO UPDATE. ⚠️
+const D={SoundsNavMenuClick:N},H={class:"bottom-nav"},V=["onClick"],j={class:"icon"},R={class:"label"},U=["onClick"],q={class:"icon"},E={class:"label"},P=["onClick"],T={class:"icon"},W={class:"label"},F=["onClick"],G={class:"icon"},J={class:"label"},K={__name:"NavMenu",setup(w){const _=z(),v=["/expense-management","/analysis","/ai-chat","/profile"];let n=null,c=null;const b=D.SoundsNavMenuClick;typeof window<"u"&&(c=new(window.AudioContext||window.webkitAudioContext),fetch(b).then(t=>t.arrayBuffer()).then(t=>c.decodeAudioData(t)).then(t=>{n=t}));const x=()=>{if(n&&c){const t=c.createBufferSource();t.buffer=n,t.connect(c.destination),t.start(0)}},l=t=>{x(),t()},g=()=>v.findIndex(t=>_.path===t||_.path.startsWith(t+"/")),M=$(()=>{const t=g();return{left:`calc(${(t<0?0:t)*25}% )`,boxShadow:"0 0 16px 4px rgba(10,64,12,0.18), 0 0 32px 8px rgba(10,64,12,0.10)"}});return(t,Z)=>{const i=y("router-link");return C(),f("nav",H,[e("div",{class:"nav-bar-indicator",style:A(M.value)},null,4),e("ul",null,[o(i,{to:"/expense-management",custom:""},{default:r(({navigate:s,isActive:a})=>[e("li",{class:d({active:a}),onClick:k=>l(s)},[e("span",j,[o(u(B),{size:25,color:a?"#0A400C":"#819067","stroke-width":1.8},null,8,["color"])]),e("span",R,p(t.$t("home")),1)],10,V)]),_:1}),o(i,{to:"/analysis",custom:""},{default:r(({navigate:s,isActive:a})=>[e("li",{class:d({active:a}),onClick:k=>l(s)},[e("span",q,[o(u(S),{size:25,color:a?"#0A400C":"#819067","stroke-width":1.8},null,8,["color"])]),e("span",E,p(t.$t("analysis")),1)],10,U)]),_:1}),o(i,{to:"/ai-chat",custom:""},{default:r(({navigate:s,isActive:a})=>[e("li",{class:d({active:a}),onClick:k=>l(s)},[e("span",T,[o(u(I),{size:25,"stroke-width":1.8,color:a?"#0A400C":"#819067"},null,8,["color"])]),e("span",W,p(t.$t("ai_chat")),1)],10,P)]),_:1}),o(i,{to:"/profile",custom:""},{default:r(({navigate:s,isActive:a})=>[e("li",{class:d({active:a}),onClick:k=>l(s)},[e("span",G,[o(u(L),{size:25,color:a?"#0A400C":"#819067","stroke-width":1.8},null,8,["color"])]),e("span",J,p(t.$t("profile")),1)],10,F)]),_:1})])])}}},O=m(K,[["__scopeId","data-v-d5dea3b3"]]),Q={class:"app-layout"},X={class:"main-content bg-grid"},Y={__name:"AppLayout",setup(w){return(_,v)=>{const n=y("router-view");return C(),f("div",Q,[e("main",X,[o(n)]),o(O)])}}},at=m(Y,[["__scopeId","data-v-65c4cede"]]);export{at as default};
